@@ -27,24 +27,25 @@
   /* GATE */
   .gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,var(--navy),var(--navy-2))}
   .gate.hidden{display:none}
-  .gate-card{background:var(--card);border-radius:20px;max-width:520px;width:100%;padding:34px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
-  .gate-brand{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:600;font-size:18px;margin-bottom:22px}
-  .gate-brand .mark{width:32px;height:32px;border-radius:9px;background:var(--cyan);display:grid;place-items:center;color:#fff;font-weight:700;font-size:16px}
+  .gate-card{background:var(--card);border-radius:20px;max-width:500px;width:100%;padding:26px 30px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+  .gate-brand{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:600;font-size:17px;margin-bottom:18px}
+  .gate-brand .mark{width:30px;height:30px;border-radius:9px;background:var(--cyan);display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px}
   .gate-brand .yr{color:var(--cyan-600)}
   .gate-step{display:none}.gate-step.on{display:block;animation:fade .3s}
-  .gate-h{font-size:22px;font-weight:600;margin-bottom:6px}
-  .gate-sub{font-size:14px;color:var(--muted);margin-bottom:22px}
-  .rolebtns{display:flex;flex-direction:column;gap:11px}
-  .rolebtn{border:1px solid var(--line-2);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .15s}
+  .gate-h{font-size:20px;font-weight:600;margin-bottom:5px}
+  .gate-sub{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+  .rolebtns{display:flex;flex-direction:column;gap:10px}
+  .rolebtn{border:1px solid var(--line-2);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:all .15s}
   .rolebtn:hover{border-color:var(--cyan);background:var(--cyan-soft)}
-  .rolebtn .ri{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:20px;flex-shrink:0}
-  .rolebtn h4{font-size:16px;font-weight:600}.rolebtn p{font-size:13px;color:var(--muted)}
-  .selrow{margin-bottom:14px}
-  .selrow label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
-  .sel{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--navy);background:var(--card);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2361708c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-  .gate-note{font-size:12px;color:var(--muted-2);margin-top:8px;display:flex;gap:8px;align-items:flex-start;line-height:1.5;font-style:italic}
-  .gate-actions{display:flex;gap:10px;margin-top:20px}
-  .prog-hint{margin-top:14px;padding:11px 13px;border-radius:10px;font-size:12.5px;line-height:1.5;display:none}
+  .rolebtn .ri{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:19px;flex-shrink:0}
+  .rolebtn h4{font-size:15px;font-weight:600}.rolebtn p{font-size:12.5px;color:var(--muted)}
+  .selrow{margin-bottom:12px}
+  .selrow label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
+  .sel{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:11px 14px;font-size:14px;color:var(--navy);background:var(--card);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2361708c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .gate-note{font-size:12px;color:var(--muted-2);margin-top:8px;display:flex;gap:8px;align-items:flex-start;line-height:1.45;font-style:italic}
+  .gate-actions{display:flex;gap:10px;margin-top:16px}
+  .prog-slot{min-height:48px;margin-top:12px}
+  .prog-hint{padding:10px 13px;border-radius:10px;font-size:12.5px;line-height:1.45;display:none}
   .prog-hint.show{display:block}
   .prog-official{background:var(--teal-soft);color:var(--teal-ink)}
   .prog-open{background:var(--cyan-soft);color:var(--cyan-600)}
@@ -114,6 +115,9 @@
 
   /* editorial featured row */
   .featured{margin-bottom:26px}
+  .stu-controls{margin-bottom:26px}
+  .stu-browse-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .stu-lbl{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
   .feat-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
   .feat-head h3{font-size:15px;font-weight:600}
   .feat-head .fb{font-size:11px;font-weight:700;background:var(--purple-soft);color:var(--purple);padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
@@ -166,9 +170,9 @@
   .clip-body p{font-size:12px;color:var(--muted);margin-top:3px}
 
   /* overlay */
-  .overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(21,26,74,.6);overflow-y:auto;padding:26px 16px}
+  .overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(21,26,74,.6);overflow-y:auto;padding:20px 16px}
   .overlay.active{display:block;animation:fade .25s}
-  .sheet{max-width:800px;margin:0 auto;background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+  .sheet{max-width:720px;margin:0 auto;background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.4)}
   .sheet-top{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--paper);border-bottom:1px solid var(--line)}
   .sheet-top .st-left{display:flex;align-items:center;gap:10px}
   .mode-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:6px 12px;border-radius:20px}
@@ -176,7 +180,7 @@
   .st-title{font-family:var(--fd);font-weight:600;font-size:15px}
   .sheet-close{width:34px;height:34px;border-radius:50%;background:var(--card);border:1px solid var(--line-2);cursor:pointer;font-size:15px;color:var(--navy)}
 
-  .player{aspect-ratio:16/9;background:#0d1030;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
+  .player{aspect-ratio:16/9;max-height:46vh;background:#0d1030;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
   .player .stage{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .4s}
   .clip-visual{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
   .clip-visual .cbig{font-size:64px}
@@ -315,6 +319,13 @@
   .spot-metrics b{color:var(--navy);font-weight:600}
 
   .signin-card{max-width:440px;margin:12vh auto 0;background:var(--card);border-radius:18px;padding:30px 32px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+  .rk{background:var(--paper);border-radius:11px;padding:14px;text-align:center}
+  .rk-v{font-family:var(--fd);font-size:26px;font-weight:600;color:var(--navy)}
+  .rk-l{font-size:11px;color:var(--muted);margin-top:2px}
+  .rk-row{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:9px}
+  .rbar{background:var(--paper);border-radius:8px;height:30px;margin-bottom:7px;overflow:hidden}
+  .rbar-fill{height:100%;background:var(--cyan);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;padding-left:11px;border-radius:8px}
+  .rw{background:var(--cyan-soft);color:var(--cyan-600);border-radius:20px;padding:5px 12px;font-weight:600}
   .si-ic{font-size:32px;margin-bottom:12px}
   .signin-card h3{font-size:20px;font-weight:600;margin-bottom:8px}
   .signin-card p{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.5}
@@ -356,10 +367,11 @@
       <div class="selrow"><label>School</label>
         <select class="sel" id="schoolsel"><option value="">Select your school…</option><option>Sir Wilfrid Laurier SS</option><option>St. Mark HS</option></select>
       </div>
-      <div class="prog-hint prog-official" id="hintOfficial">✅ Your board runs Career Launch as an official program — you'll see it featured, with board reporting behind the scenes.</div>
-      <div class="prog-hint prog-open" id="hintOpen">👍 Full access, free. Your board isn't running it as an official program yet — want to help change that? You can flag it to them anytime.</div>
-      <div class="gate-note"><span>🔒</span><span>We count participation as board / school / grade totals only — never names, emails, or student profiles.</span></div>
-      <div id="teacherSignin" class="gate-note" style="display:none;font-style:normal"><span>👋</span><span><b style="color:var(--navy);font-weight:600">Teachers:</b> jump straight in — no sign-in needed to browse and play. You'll only add your school email later if you want to save collections or see your class's results.</span></div>
+      <div class="prog-slot">
+        <div class="prog-hint prog-official" id="hintOfficial">✅ Your board runs this as an official program — featured for you, with board reporting behind the scenes.</div>
+        <div class="prog-hint prog-open" id="hintOpen">👍 Full access, free. Your board isn't running it as an official program yet — you can flag it to them anytime.</div>
+      </div>
+      <div class="gate-note"><span>🔒</span><span>Participation is counted as board / school / grade totals only — never names, emails, or student profiles.</span></div>
       <div class="gate-actions">
         <button class="btn btn-ghost" onclick="gateBack()">← Back</button>
         <button class="btn btn-primary btn-lg" onclick="enterApp()">Enter Career Launch</button>
@@ -425,25 +437,25 @@
         <p>A minute with a real person, following the truth of their work. Browse by vibe or by industry — watch a few, save what sparks something.</p>
       </div>
 
-      <div class="controls">
-        <div class="ctrl-line">
-          <span class="ctrl-lbl">Browse</span>
+      <div class="stu-controls">
+        <div class="stu-browse-row">
+          <span class="stu-lbl">Browse</span>
           <div class="seg-toggle">
             <button class="on" id="b-vibe" onclick="setBrowse('vibe')">✨ By vibe</button>
             <button id="b-sector" onclick="setBrowse('sector')">🏭 By industry</button>
           </div>
         </div>
-        <div class="ctrl-line"><div class="pillrow" id="stu-chips"></div></div>
+        <div class="pillrow" id="stu-chips"></div>
       </div>
 
       <div class="featured">
-        <div class="feat-head"><span class="fb">Featured</span><h3>Editorial collections — the discovery layer</h3></div>
+        <div class="feat-head"><span class="fb">Featured</span><h3>Editorial collections</h3></div>
         <div class="feat-scroll" id="featured"></div>
       </div>
 
       <div class="grid g3" id="stu-clips"></div>
 
-      <div class="dir-head" style="margin-top:32px"><span class="db">Partner spotlights</span><h3>Browse the organizations behind the clips</h3></div>
+      <div class="dir-head" style="margin-top:36px"><span class="db">Partner spotlights</span><h3>The organizations behind the clips</h3></div>
       <div class="dir-grid" id="directory"></div>
 
       <div class="flag"><b>Three layers working together:</b> industry + vibe are the filing system (find anything), the featured editorial collections up top are the discovery/surprise layer, and partner spotlights (booths) are the depth layer — reached by tapping a partner on any clip, or from this light directory.</div>
@@ -497,17 +509,46 @@
           <div class="ns-item" onclick="notify('Opening related collections')"><div class="ns-ic" style="background:var(--royal-soft);color:var(--royal)">🎬</div><h5>More like this</h5><p>Same vibe or sector</p></div>
           <div class="ns-item" onclick="notify('Opening interest check')"><div class="ns-ic" style="background:var(--cyan-soft);color:var(--cyan-600)">🧭</div><h5>What fits me?</h5><p>Quick interest check</p></div>
         </div>
-        <div class="ns-sec-lab" style="margin-top:15px">If a partner offers it — leaves myBlueprint</div>
-        <div class="ns-grid">
-          <div class="ns-item ns-out" onclick="notify('Opens the partner site — you leave myBlueprint')"><div class="ns-ic" style="background:var(--amber-soft);color:var(--amber-ink)">🔗</div><h5>Learn more at the source</h5><p>Partner's own site</p></div>
+        <div id="ns-partner-out">
+          <div class="ns-sec-lab" style="margin-top:15px">If a partner offers it — leaves myBlueprint</div>
+          <div class="ns-grid">
+            <div class="ns-item ns-out" onclick="notify('Opens the partner site — you leave myBlueprint')"><div class="ns-ic" style="background:var(--amber-soft);color:var(--amber-ink)">🔗</div><h5>Learn more at the source</h5><p>Partner's own site</p></div>
+          </div>
+          <div class="privacy-note"><span>🔒</span><span>Clicking out is your choice and opens the partner's site. We never hand over your name, email, or school. If a partner supplies no link, this doesn't appear.</span></div>
         </div>
-        <div class="privacy-note"><span>🔒</span><span>Clicking out is your choice and opens the partner's site. We never hand over your name, email, or school. If a partner supplies no link, this doesn't appear.</span></div>
       </div>
     </div>
   </div>
 </div>
 
 <div id="toast"></div>
+
+<!-- CLASS RESULTS SUMMARY -->
+<div class="overlay" id="resultsoverlay">
+  <div class="sheet" style="max-width:560px">
+    <div class="sheet-top">
+      <div class="st-left"><span class="st-title">📊 Your class summary</span></div>
+      <button class="sheet-close" onclick="document.getElementById('resultsoverlay').classList.remove('active');document.body.style.overflow=''">✕</button>
+    </div>
+    <div style="padding:22px 26px 28px">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Anonymous, aggregate only — never a student's name. This is what you'd see after your class takes part.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
+        <div class="rk"><div class="rk-v">28</div><div class="rk-l">students watched</div></div>
+        <div class="rk"><div class="rk-v">86%</div><div class="rk-l">finished the collection</div></div>
+        <div class="rk"><div class="rk-v">24</div><div class="rk-l">answered the poll</div></div>
+      </div>
+      <div class="rk-row"><span>"Could you see yourself doing this?"</span></div>
+      <div class="rbar"><div class="rbar-fill" style="width:46%">Yeah, maybe · 46%</div></div>
+      <div class="rbar"><div class="rbar-fill" style="width:39%;background:var(--royal)">Not sure yet · 39%</div></div>
+      <div class="rbar"><div class="rbar-fill" style="width:15%;background:var(--line-2);color:var(--navy)">Not for me · 15%</div></div>
+      <div class="rk-row" style="margin-top:16px"><span>Most-picked words for these jobs</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span class="rw" style="font-size:17px">Hands-on</span><span class="rw" style="font-size:15px">Cool</span><span class="rw" style="font-size:14px">Well-paid</span><span class="rw" style="font-size:13px">Hard</span><span class="rw" style="font-size:12px">Surprising</span>
+      </div>
+      <div class="privacy-note" style="margin-top:18px"><span>🔒</span><span>Every number here is a class-level total. No student is identified, and nothing is shared outside your board's own reporting.</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- TEACHER SIGN-IN (contextual, action-triggered) -->
 <div class="overlay" id="signinoverlay">
@@ -538,11 +579,11 @@
     </div>
     <div class="spot-body">
       <div class="spot-sec">
-        <h3>🎬 Their clips</h3>
+        <h3>🎬 Meet the people</h3>
         <div class="spot-clips" id="spot-clips"></div>
       </div>
       <div class="spot-sec">
-        <h3>🎯 Test yourself</h3>
+        <h3>🎯 Give it a try</h3>
         <div class="quiz-card">
           <div class="ql">Interactive challenge</div>
           <h4 id="quiz-title">Quiz</h4>
@@ -556,7 +597,7 @@
         <div class="res-list" id="spot-resources"></div>
       </div>
       <div class="spot-sec" id="spot-out-sec">
-        <h3>🔗 Go deeper — on their site</h3>
+        <h3>🔗 Want to know more?</h3>
         <div class="spot-out" onclick="notify('Opens the partner site — you leave myBlueprint. No data goes with you.')">
           <div class="so-ic">🔗</div>
           <div><h5 id="spot-out-title">Explore careers at this organization</h5><p>Student-initiated · leaves myBlueprint · no PII shared</p></div>
@@ -593,7 +634,7 @@ const colls=[
    cols:["#ff9e2c","#2f6bff","#12b886","#00b6e8","#ff7a45","#7a5cff"],
    desc:"Electrician, crane op, welder, HVAC and more — 60 seconds each, real sites.",
    list:[["Electrician apprentice","⚡"],["Crane operator","🏗️"],["Welder","🔥"],["HVAC technician","❄️"],["Millwright","⚙️"],["Solar installer","☀️"]]},
-  {id:"demo",t:"Careers you've never heard of",sec:"Mixed",grade:"7-12",clips:5,dur:"6 min",demo:true,
+  {id:"demo",t:"Careers you've never heard of",sec:"Editorial",grade:"7-12",clips:5,dur:"6 min",demo:true,
    cols:["#7a5cff","#00b6e8","#12b886","#ff9e2c","#2f6bff"],
    desc:"The rich-interaction demo: guess-the-job, a data-guess slider, and a word-cloud reflection between clips.",
    list:[["Foley artist","🎬"],["Ethical hacker","💻"],["Wind turbine tech","🌬️"],["Prosthetist","🦿"],["Precision beekeeper","🐝"]]},
@@ -601,7 +642,39 @@ const colls=[
    cols:["#12b886","#00b6e8","#2f6bff","#ff9e2c","#7a5cff","#12b886"],
    desc:"Nurse, paramedic, PSW, physio — care careers across the health system.",
    list:[["Nursing student","🩺"],["Paramedic","🚑"],["Personal support worker","🤲"],["Physiotherapist","💪"],["Mental health worker","💚"],["Dental hygienist","🦷"]]},
-  {id:"quick",t:"Quick warm-up: one surprising job",sec:"Mixed",grade:"7-12",clips:1,dur:"1 min",demo:false,
+  {id:"dayinlife",t:"A day in the life: skilled trades",sec:"Editorial",grade:"9-12",clips:5,dur:"6 min",demo:false,
+   cols:["#ff9e2c","#ff7a45","#2f6bff","#00b6e8","#12b886"],
+   desc:"Hour-by-hour with five tradespeople — clock-in to clock-out.",
+   list:[["Electrician's morning","🌅"],["Site lunch break","🥪"],["Afternoon inspection","🔍"],["Toughest task","💪"],["Clocking out","🌆"]]},
+  {id:"nodegree",t:"Made $100k without a degree",sec:"Editorial",grade:"11-12",clips:6,dur:"7 min",demo:false,
+   cols:["#2f6bff","#7a5cff","#ff9e2c","#12b886","#00b6e8","#ff7a45"],
+   desc:"Paths that pay — apprenticeships, trades, and on-the-job routes, no debt.",
+   list:[["Crane operator","🏗️"],["Elevator mechanic","🛗"],["Power lineworker","🔌"],["Pipefitter","🔧"],["Wind tech","🌬️"],["Railway engineer","🚂"]]},
+  {id:"future",t:"Careers that didn't exist 10 years ago",sec:"Editorial",grade:"7-12",clips:5,dur:"6 min",demo:false,
+   cols:["#7a5cff","#2f6bff","#00b6e8","#12b886","#ff9e2c"],
+   desc:"Jobs the future invented — AI, climate, content, and more.",
+   list:[["Prompt engineer","🤖"],["Battery tech","🔋"],["Content creator","📱"],["Drone pilot","🚁"],["Sustainability lead","🌍"]]},
+  {id:"tech",t:"Made in Canada: tech & data",sec:"Technology & digital",grade:"11-12",clips:5,dur:"6 min",demo:false,
+   cols:["#2f6bff","#00b6e8","#7a5cff","#12b886","#ff9e2c"],
+   desc:"Game dev, data analyst, cybersecurity, UX — where tech gets made.",
+   list:[["Game developer","🎮"],["Data analyst","📊"],["Cybersecurity analyst","🔐"],["UX designer","🎨"],["IT support","🖥️"]]},
+  {id:"agri",t:"Growing & feeding the country",sec:"Agriculture & food",grade:"7-9",clips:6,dur:"6 min",demo:false,
+   cols:["#12b886","#ff9e2c","#00b6e8","#2f6bff","#12b886","#ff7a45"],
+   desc:"Ag-robotics, food science, greenhouse tech — farming isn't what you think.",
+   list:[["Ag-robotics tech","🚜"],["Food scientist","🔬"],["Greenhouse grower","🌱"],["Agronomist","🌾"],["Craft brewer","🍺"],["Butcher","🔪"]]},
+  {id:"women",t:"Women in the trades",sec:"Skilled trades",grade:"9-12",clips:5,dur:"6 min",demo:false,
+   cols:["#ff9e2c","#7a5cff","#ff7a45","#2f6bff","#12b886"],
+   desc:"Five women on why they chose the trades — and what surprised them.",
+   list:[["Carpenter","🔨"],["Electrician","⚡"],["Welder","🔥"],["Heavy-equipment op","🚜"],["Plumber","🔧"]]},
+  {id:"howigot",t:"How I got here",sec:"Editorial",grade:"10-12",clips:5,dur:"6 min",demo:false,
+   cols:["#00b6e8","#12b886","#2f6bff","#7a5cff","#ff9e2c"],
+   desc:"The winding, non-linear path from high school to now — five real stories.",
+   list:[["From dropout to dev","💻"],["Trades after university","🔧"],["Career pivot at 25","🔄"],["Family business","🏪"],["Following a hobby","🎯"]]},
+  {id:"publicsafety",t:"Keeping people safe",sec:"Public service, law & safety",grade:"9-12",clips:5,dur:"6 min",demo:false,
+   cols:["#00b6e8","#2f6bff","#ff9e2c","#12b886","#7a5cff"],
+   desc:"Paramedic, firefighter, dispatcher, officer — public-safety careers.",
+   list:[["Paramedic","🚑"],["Firefighter","🚒"],["911 dispatcher","📞"],["Police officer","👮"],["Search & rescue","🚁"]]},
+  {id:"quick",t:"Quick warm-up: one surprising job",sec:"Editorial",grade:"7-12",clips:1,dur:"1 min",demo:false,
    cols:["#00b6e8"],
    desc:"A single 60-second clip — perfect as a lesson warm-up or exit ticket.",
    list:[["Precision beekeeper","🐝"]]}
@@ -704,7 +777,7 @@ function renderClips(){
 function pickChip(el,grp){el.parentElement.querySelectorAll('.p-chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');notify('Filtered to '+el.textContent.replace('★',''));}
 
 /* gate */
-function chooseRole(r){role=r;document.getElementById('g1').classList.remove('on');document.getElementById('g2').classList.add('on');document.getElementById('teacherSignin').style.display=r==='edu'?'flex':'none';}
+function chooseRole(r){role=r;document.getElementById('g1').classList.remove('on');document.getElementById('g2').classList.add('on');}
 function gateBack(){document.getElementById('g2').classList.remove('on');document.getElementById('g1').classList.add('on');}
 function checkProgram(){
   const v=document.getElementById('boardsel').value;program=v;
@@ -763,6 +836,7 @@ function openColl(id){
   pauseAfter = curColl.clips===1?[]:(curColl.clips>=5?[2,4]:[Math.floor(curColl.clips/2)]);
   document.getElementById('sheet-partner').style.display='none';currentSheetPartner=null;
   document.getElementById('engage').style.display='none';
+  document.getElementById('ns-partner-out').style.display=curColl.clips===1?'block':'none';
   buildSegs(curColl.clips);
   resetPlayer();
   document.getElementById('overlay').classList.add('active');document.body.style.overflow='hidden';
@@ -775,8 +849,8 @@ function openClipByName(name){
   document.getElementById('sheet-meta').innerHTML=`<span class="pill pill-clips">1 clip · 60s</span><span class="pill" style="background:var(--paper);color:var(--muted)">${c.sec}</span>${c.demo?'<span class="pill pill-demo">★ Rich</span>':''}`;
   const tag=document.getElementById('sheet-modetag');tag.className='mode-tag one';tag.textContent='💻 On device';
   const sp=document.getElementById('sheet-partner');
-  if(c.partner){currentSheetPartner=c.partner;document.getElementById('sheet-partner-name').textContent=partners[c.partner].name;sp.style.display='inline-flex';}
-  else{sp.style.display='none';currentSheetPartner=null;}
+  if(c.partner){currentSheetPartner=c.partner;document.getElementById('sheet-partner-name').textContent=partners[c.partner].name;sp.style.display='inline-flex';document.getElementById('ns-partner-out').style.display='block';}
+  else{sp.style.display='none';currentSheetPartner=null;document.getElementById('ns-partner-out').style.display='none';}
   pauseAfter=c.demo?[1]:[];
   const eng=document.getElementById('engage');eng.style.display='block';
   const words=['Exciting','Hard','Boring','Cool','Stressful','Creative','Well-paid','Hands-on','Surprising','Not for me'];
@@ -915,6 +989,7 @@ function submitSignin(){
   if(pendingAction){pendingAction();pendingAction=null;}
 }
 function closeSignin(){document.getElementById('signinoverlay').classList.remove('active');document.body.style.overflow='';pendingAction=null;}
+document.getElementById('resultsoverlay').addEventListener('click',e=>{if(e.target.id==='resultsoverlay'){document.getElementById('resultsoverlay').classList.remove('active');document.body.style.overflow='';}});
 document.getElementById('signinoverlay').addEventListener('click',e=>{if(e.target.id==='signinoverlay')closeSignin();});
 function updateCtxSignedIn(){
   const c=document.getElementById('ctxlabel');
@@ -922,7 +997,7 @@ function updateCtxSignedIn(){
     c.innerHTML+=' <span style="color:var(--teal);font-weight:600">· signed in</span>';
 }
 function saveCollection(){requireSignin('Save this to your collections','Add your school email so you can pick up where you left off, and get your class participation summary after Festival Week.',()=>notify('Saved to your collections'));}
-function getResults(){requireSignin('Get your class results','Add your school email and we will send your class anonymous participation summary after they take part: views, completion, and awareness shift.',()=>notify('You will get your class summary after they participate'));}
+function getResults(){requireSignin('Get your class results','Add your school email and we will send your class anonymous participation summary after they take part: views, completion, and awareness shift.',()=>{document.getElementById('resultsoverlay').classList.add('active');document.body.style.overflow='hidden';});}
 
 let currentSheetPartner=null;
 function renderDirectory(){
