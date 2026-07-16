@@ -328,6 +328,27 @@
   .spot-metrics b{color:var(--navy);font-weight:600}
 
   .signin-card{max-width:440px;margin:12vh auto 0;background:var(--card);border-radius:18px;padding:30px 32px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+  .fit-body{padding:24px 28px 30px}
+  .fit-prog{display:flex;gap:6px;margin-bottom:20px}
+  .fit-prog span{flex:1;height:5px;border-radius:3px;background:var(--line)}
+  .fit-prog span.on{background:var(--cyan)}
+  .fit-q{font-family:var(--fd);font-size:20px;font-weight:600;margin-bottom:6px}
+  .fit-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+  .fit-opts{display:flex;flex-direction:column;gap:10px}
+  .fit-opt{border:1px solid var(--line-2);border-radius:12px;padding:15px 17px;font-size:15px;font-weight:500;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:12px;color:var(--navy)}
+  .fit-opt:hover{border-color:var(--cyan);background:var(--cyan-soft)}
+  .fit-opt .fo-e{font-size:22px}
+  .fit-result{text-align:center}
+  .fit-result .fr-e{font-size:52px;margin-bottom:10px}
+  .fit-result h3{font-family:var(--fd);font-size:22px;font-weight:600;margin-bottom:6px}
+  .fit-result .fr-sub{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.5}
+  .fit-recs{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:20px}
+  .fit-rec{border:1px solid var(--line);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s}
+  .fit-rec:hover{border-color:var(--cyan);background:var(--paper)}
+  .fit-rec .fr-ic{width:36px;height:36px;border-radius:9px;background:var(--cyan-soft);display:grid;place-items:center;font-size:17px;flex-shrink:0}
+  .fit-rec h5{font-size:14px;font-weight:600}.fit-rec p{font-size:12px;color:var(--muted)}
+  .fit-again{background:transparent;border:0;color:var(--muted);font-family:var(--fb);font-size:13px;font-weight:500;cursor:pointer;padding:8px}
+  .fit-again:hover{color:var(--navy)}
   .rk{background:var(--paper);border-radius:11px;padding:14px;text-align:center}
   .rk-v{font-family:var(--fd);font-size:26px;font-weight:600;color:var(--navy)}
   .rk-l{font-size:11px;color:var(--muted);margin-top:2px}
@@ -516,7 +537,7 @@
         <div class="ns-grid">
           <div class="ns-item" onclick="notify('Saved to your pathways')"><div class="ns-ic" style="background:var(--teal-soft);color:var(--teal-ink)">📌</div><h5>Save to pathways</h5><p>Keep it in myBlueprint</p></div>
           <div class="ns-item" onclick="notify('Opening related collections')"><div class="ns-ic" style="background:var(--royal-soft);color:var(--royal)">🎬</div><h5>More like this</h5><p>Same vibe or sector</p></div>
-          <div class="ns-item" onclick="notify('Opening interest check')"><div class="ns-ic" style="background:var(--cyan-soft);color:var(--cyan-600)">🧭</div><h5>What fits me?</h5><p>Quick interest check</p></div>
+          <div class="ns-item" onclick="openFitQuiz()"><div class="ns-ic" style="background:var(--cyan-soft);color:var(--cyan-600)">🧭</div><h5>What fits me?</h5><p>Quick interest check</p></div>
         </div>
         <div id="ns-partner-out">
           <div class="ns-sec-lab" style="margin-top:15px">If a partner offers it — leaves myBlueprint</div>
@@ -527,6 +548,17 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- WHAT FITS ME — interest check -->
+<div class="overlay" id="fitoverlay">
+  <div class="sheet" style="max-width:560px">
+    <div class="sheet-top">
+      <div class="st-left"><span class="st-title">🧭 What fits me?</span></div>
+      <button class="sheet-close" onclick="closeFit()">✕</button>
+    </div>
+    <div class="fit-body" id="fit-body"></div>
   </div>
 </div>
 
@@ -851,7 +883,7 @@ function setProv(){
 }
 
 /* ---- player ---- */
-let curColl=null,playing=false,timer=null,segIdx=0,segProg=0,pauseAfter=[];
+let curColl=null,playing=false,timer=null,segIdx=0,segProg=0,pauseAfter=[],midPauseActive=false;
 function openColl(id){
   curColl=colls.find(c=>c.id===id)||colls[0];
   document.getElementById('sheet-title').textContent=curColl.t;
@@ -861,6 +893,7 @@ function openColl(id){
   tag.className='mode-tag '+(mode==='proj'?'proj':'one');
   tag.textContent=mode==='proj'?'📽️ Projected':'💻 On devices';
   pauseAfter = curColl.clips===1?[]:(curColl.clips>=5?[2,4]:[Math.floor(curColl.clips/2)]);
+  midPauseActive=false;
   document.getElementById('sheet-partner').style.display='none';currentSheetPartner=null;
   document.getElementById('engage').style.display='none';
   document.getElementById('ns-partner-out').style.display=curColl.clips===1?'block':'none';
@@ -878,7 +911,7 @@ function openClipByName(name){
   const sp=document.getElementById('sheet-partner');
   if(c.partner){currentSheetPartner=c.partner;document.getElementById('sheet-partner-name').textContent=partners[c.partner].name;sp.style.display='inline-flex';document.getElementById('ns-partner-out').style.display='block';}
   else{sp.style.display='none';currentSheetPartner=null;document.getElementById('ns-partner-out').style.display='none';}
-  pauseAfter=c.demo?[1]:[];
+  pauseAfter=[];midPauseActive=true;
   const eng=document.getElementById('engage');eng.style.display='block';
   const words=['Exciting','Hard','Boring','Cool','Stressful','Creative','Well-paid','Hands-on','Surprising','Not for me'];
   document.getElementById('engwords').innerHTML=words.map(w=>`<span class="wc-word" onclick="wordPick(this)">${w}</span>`).join('');
@@ -922,6 +955,7 @@ function playSim(){
     segProg+=5;
     if(segProg<40)updateArc(0);else if(segProg<75)updateArc(1);else updateArc(2);
     if(segs[segIdx])segs[segIdx].querySelector('.fill').style.width=Math.min(segProg,100)+'%';
+    if(midPauseActive && segProg>=55){clearInterval(timer);playing=false;b.textContent='▶';midPauseActive=false;showPause();return;}
     if(segProg>=100){
       if(segs[segIdx])segs[segIdx].classList.add('done');
       segProg=0;segIdx++;
@@ -934,12 +968,13 @@ function playSim(){
   },55);
 }
 
-/* pause overlay content — varies by mode + demo */
+/* pause overlay content — students always interactive; teacher-projected gets discussion */
 function showPause(){
   const ov=document.getElementById('pauseov');
   const isDemo=curColl.demo;
+  const projected = (role==='edu' && mode==='proj');
   let html='';
-  if(mode==='proj'){
+  if(projected){
     html=`<div class="pz-lab">⏸ Pause &amp; talk</div>
       <h3>Which of those surprised you most — and why?</h3>
       <div class="teacher-cues">
@@ -982,6 +1017,8 @@ function showPause(){
       </div>
       <button class="btn btn-cyan pause-resume" onclick="resume()">Next clip ▶</button>`;
   }
+  const resumeLabel = curColl.clips===1 ? 'Keep watching ▶' : 'Next clip ▶';
+  html=html.replace(/Next clip ▶/g,resumeLabel);
   ov.innerHTML=html;ov.classList.add('show');document.getElementById('player').classList.add('paused');
 }
 function resume(){document.getElementById('pauseov').classList.remove('show');document.getElementById('player').classList.remove('paused');setStage(segIdx);playSim();}
@@ -1059,6 +1096,59 @@ function openSpot(id){
   document.body.style.overflow='hidden';window.scrollTo({top:0});
 }
 function openSpotFromSheet(){if(currentSheetPartner)openSpot(currentSheetPartner);}
+
+/* ---- What fits me? interest check ---- */
+const fitQuestions=[
+  {q:"On a free afternoon, you'd rather…",sub:"Go with your gut.",opts:[
+    {e:"🔧",t:"Build, fix, or make something with your hands",v:"Build & fix things"},
+    {e:"🔬",t:"Figure out how something works",v:"Investigate & solve"},
+    {e:"🎨",t:"Design, draw, or create something",v:"Create & design"},
+    {e:"🤝",t:"Help someone out",v:"Help & care for people"}]},
+  {q:"In a group project, you're usually the one who…",sub:"Be honest.",opts:[
+    {e:"📣",t:"Gets everyone organized and pitches the idea",v:"Lead, sell & organize"},
+    {e:"🗂️",t:"Keeps track of the details and the plan",v:"Plan & keep things running"},
+    {e:"🔬",t:"Digs into the research",v:"Investigate & solve"},
+    {e:"🎨",t:"Makes it look good",v:"Create & design"}]},
+  {q:"Which would feel most satisfying?",sub:"Last one.",opts:[
+    {e:"🔧",t:"Seeing a thing you built actually work",v:"Build & fix things"},
+    {e:"🤝",t:"Knowing you made someone's day better",v:"Help & care for people"},
+    {e:"📣",t:"Convincing people to back your idea",v:"Lead, sell & organize"},
+    {e:"🔬",t:"Cracking a problem no one else could",v:"Investigate & solve"}]}
+];
+let fitStep=0, fitScores={};
+function openFitQuiz(){fitStep=0;fitScores={};renderFit();document.getElementById('fitoverlay').classList.add('active');document.body.style.overflow='hidden';}
+function closeFit(){document.getElementById('fitoverlay').classList.remove('active');document.body.style.overflow='';}
+document.getElementById('fitoverlay').addEventListener('click',e=>{if(e.target.id==='fitoverlay')closeFit();});
+function renderFit(){
+  const b=document.getElementById('fit-body');
+  const prog='<div class="fit-prog">'+fitQuestions.map((_,i)=>`<span class="${i<=fitStep?'on':''}"></span>`).join('')+'</div>';
+  if(fitStep<fitQuestions.length){
+    const q=fitQuestions[fitStep];
+    b.innerHTML=prog+`<div class="fit-q">${q.q}</div><div class="fit-sub">${q.sub}</div>
+      <div class="fit-opts">${q.opts.map((o,i)=>`<div class="fit-opt" onclick="fitAnswer('${o.v}')"><span class="fo-e">${o.e}</span>${o.t}</div>`).join('')}</div>`;
+  } else { showFitResult(); }
+}
+function fitAnswer(vibe){fitScores[vibe]=(fitScores[vibe]||0)+1;fitStep++;renderFit();}
+function showFitResult(){
+  const top=Object.entries(fitScores).sort((a,b)=>b[1]-a[1])[0][0];
+  const vibe=vibes.find(v=>v.t===top)||vibes[0];
+  const recs=colls.filter(c=>{
+    const clipVibes=(c.list||[]).map(x=>x[0]);
+    return true;
+  }).slice(0,3);
+  const matched=colls.filter(c=>c.sec!=='Editorial').slice(0,3);
+  const b=document.getElementById('fit-body');
+  b.innerHTML=`<div class="fit-result">
+    <div class="fr-e">${vibe.e}</div>
+    <h3>You lean toward "${vibe.t}"</h3>
+    <div class="fr-sub">That's your strongest pull right now. It doesn't box you in — it's a doorway. Here's where to start exploring.</div>
+    <div class="fit-recs">
+      ${matched.map(c=>`<div class="fit-rec" onclick="closeFit();openColl('${c.id}')"><div class="fr-ic">🎬</div><div><h5>${c.t}</h5><p>${c.clips} clips · ${c.dur}</p></div></div>`).join('')}
+    </div>
+    <button class="fit-again" onclick="openFitQuiz()">↺ Take it again</button>
+  </div>`;
+}
+
 function closeSpot(){document.getElementById('spotoverlay').classList.remove('active');document.body.style.overflow='';}
 document.getElementById('spotoverlay').addEventListener('click',e=>{if(e.target.id==='spotoverlay')closeSpot();});
 document.getElementById('spot-back').addEventListener('click',closeSpot);
