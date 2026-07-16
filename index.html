@@ -180,7 +180,7 @@
   .st-title{font-family:var(--fd);font-weight:600;font-size:15px}
   .sheet-close{width:34px;height:34px;border-radius:50%;background:var(--card);border:1px solid var(--line-2);cursor:pointer;font-size:15px;color:var(--navy)}
 
-  .player{aspect-ratio:16/9;max-height:46vh;background:#0d1030;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
+  .player{aspect-ratio:16/9;background:#0d1030;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
   .player .stage{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .4s}
   .clip-visual{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
   .clip-visual .cbig{font-size:64px}
@@ -199,8 +199,9 @@
   .player .seg{flex:1;background:rgba(255,255,255,.18);border-radius:2px;overflow:hidden;position:relative}
   .player .seg .fill{position:absolute;inset:0;background:var(--cyan);width:0}
   .player .seg.done .fill{width:100%}
+  .player.paused .stage,.player.paused .clipnow,.player.paused .pctrl,.player.paused .segbar{visibility:hidden}
 
-  .pause-ov{position:absolute;inset:0;background:rgba(13,16,48,.96);display:none;flex-direction:column;justify-content:center;padding:26px 34px;color:#fff;z-index:3;overflow-y:auto}
+  .pause-ov{position:absolute;inset:0;background:#0d1030;display:none;flex-direction:column;justify-content:center;padding:26px 34px;color:#fff;z-index:5;overflow-y:auto}
   .pause-ov.show{display:flex;animation:fade .3s}
   .pz-lab{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
   .pause-ov h3{font-family:var(--fd);font-size:19px;font-weight:600;margin-bottom:6px;max-width:600px}
@@ -316,6 +317,14 @@
   .spot-out .so-ic{width:36px;height:36px;border-radius:9px;background:var(--amber-soft);color:var(--amber-ink);display:grid;place-items:center;font-size:16px}
   .spot-out h5{font-size:13px;font-weight:600}.spot-out p{font-size:12px;color:var(--muted)}
   .spot-metrics{background:var(--paper);border-radius:11px;padding:13px 16px;font-size:12px;color:var(--muted);display:flex;gap:9px;align-items:flex-start;font-style:italic}
+  .spot-about{font-size:14px;color:var(--navy-2);line-height:1.6}
+  .spot-touch{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .touch-web{font-size:13px;font-weight:600;color:var(--cyan-600);cursor:pointer;padding:8px 13px;border:1px solid var(--line-2);border-radius:20px}
+  .touch-web:hover{border-color:var(--cyan)}
+  .touch-social{display:flex;gap:8px;flex-wrap:wrap}
+  .touch-chip{font-size:13px;font-weight:500;color:var(--navy);cursor:pointer;padding:8px 13px;border:1px solid var(--line);border-radius:20px}
+  .touch-chip:hover{border-color:var(--cyan);color:var(--cyan-600)}
+  .touch-note{font-size:12px;color:var(--muted-2);margin-top:10px;font-style:italic;line-height:1.5}
   .spot-metrics b{color:var(--navy);font-weight:600}
 
   .signin-card{max-width:440px;margin:12vh auto 0;background:var(--card);border-radius:18px;padding:30px 32px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
@@ -578,6 +587,10 @@
       <p id="spot-tagline"></p>
     </div>
     <div class="spot-body">
+      <div class="spot-sec" id="spot-about-sec">
+        <h3>👋 Who they are</h3>
+        <p id="spot-about" class="spot-about"></p>
+      </div>
       <div class="spot-sec">
         <h3>🎬 Meet the people</h3>
         <div class="spot-clips" id="spot-clips"></div>
@@ -602,6 +615,14 @@
           <div class="so-ic">🔗</div>
           <div><h5 id="spot-out-title">Explore careers at this organization</h5><p>Student-initiated · leaves myBlueprint · no PII shared</p></div>
         </div>
+      </div>
+      <div class="spot-sec" id="spot-touch-sec">
+        <h3>🌐 Get in touch</h3>
+        <div class="spot-touch">
+          <span class="touch-web" id="spot-web" onclick="notify('Opens the partner site — you leave myBlueprint')">🔗 <span id="spot-web-label"></span></span>
+          <div class="touch-social" id="spot-social"></div>
+        </div>
+        <div class="touch-note">Following a company is a great low-key way to keep a career on your radar — it's your choice, and none of your info goes with you.</div>
       </div>
       <div class="spot-metrics"><span>📊</span><span><b>What the partner sees:</b> aggregate clip views, quiz completions, resource opens, and awareness lift — by board/grade only. Never a student's identity.</span></div>
     </div>
@@ -697,16 +718,22 @@ const partners={
     clips:[["Crane operator","🏗️"],["Welder","🔥"],["Wind turbine tech","🌬️"],["Line technician","🔌"]],
     quiz:{title:"Powering Ontario: what's the job?",desc:"Match the role to what they actually do at an electricity utility.",q:12},
     resources:[["Careers at Hydro One","Roles from technicians to engineers","💼"],["Apprenticeship pathways","How to start straight from high school","🎓"],["Indigenous partnerships","Community programs and opportunities","🤝"]],
+    about:"Hydro One delivers electricity to nearly 1.5 million people across Ontario — the province's largest electricity transmission and distribution provider. The team spans engineers, project managers, tradespeople, customer-service specialists and communications professionals, all building the future of energy.",
+    web:"hydroone.com",social:["Instagram","YouTube","LinkedIn"],
     out:"See open roles and apprenticeships at Hydro One"},
   kids:{name:"Kids Help Phone",tagline:"The people behind Canada's 24/7 youth mental-health line.",logo:"💚",c:"linear-gradient(135deg,#12b886,#0092c4)",
     clips:[["Nursing student","🩺"],["Paramedic","🚑"],["Crisis responder","📞"]],
     quiz:{title:"Careers in care: myth vs reality",desc:"Separate the myths from the facts about health and support careers.",q:8},
     resources:[["Get support now","Free, confidential, 24/7","💬"],["Volunteer & careers","Ways to get involved","🙌"],["Mental health at school","Resources for classrooms","🏫"]],
+    about:"Kids Help Phone is Canada's only 24/7 e-mental-health service offering free, confidential support to young people in English and French. Behind the line is a team of counsellors, crisis responders, clinicians and community staff — a whole set of careers built around helping others.",
+    web:"kidshelpphone.ca",social:["Instagram","TikTok","LinkedIn"],
     out:"Learn about careers and volunteering at Kids Help Phone"},
   ey:{name:"EY (Ernst & Young)",tagline:"Consulting, tech, and the surprising creative roles inside a global firm.",logo:"📊",c:"linear-gradient(135deg,#7a5cff,#2f6bff)",
     clips:[["Game developer","🎮"],["Foley artist","🎬"],["Ethical hacker","💻"],["Event producer","🎪"]],
     quiz:{title:"What does a consultant even do?",desc:"Bust the myths about business, tech, and creative careers.",q:10},
     resources:[["Student programs at EY","Internships and early-career paths","🚀"],["Skills for the future","What employers look for","🧠"],["Diversity & inclusion","Building inclusive teams","🌍"]],
+    about:"EY is a global professional-services organization spanning assurance, tax, consulting and strategy. Inside it sit far more career types than most students expect — data scientists, cybersecurity specialists, designers and technologists working alongside the accountants and consultants.",
+    web:"ey.com/careers",social:["Instagram","YouTube","LinkedIn"],
     out:"Explore student programs and early careers at EY"}
 };
 
@@ -954,9 +981,9 @@ function showPause(){
       </div>
       <button class="btn btn-cyan pause-resume" onclick="resume()">Next clip ▶</button>`;
   }
-  ov.innerHTML=html;ov.classList.add('show');
+  ov.innerHTML=html;ov.classList.add('show');document.getElementById('player').classList.add('paused');
 }
-function resume(){document.getElementById('pauseov').classList.remove('show');setStage(segIdx);playSim();}
+function resume(){document.getElementById('pauseov').classList.remove('show');document.getElementById('player').classList.remove('paused');setStage(segIdx);playSim();}
 function guessPick(el,right){
   el.parentElement.querySelectorAll('.guess-opt').forEach(o=>o.style.pointerEvents='none');
   el.classList.add(right?'right':'wrong');
@@ -1023,6 +1050,9 @@ function openSpot(id){
   document.getElementById('spot-resources').innerHTML=p.resources.map(r=>`
     <div class="res-item" onclick="notify('Opens: ${r[0]}')"><span class="ri2">${r[2]}</span><div><h5>${r[0]}</h5><p>${r[1]}</p></div></div>`).join('');
   document.getElementById('spot-out-title').textContent=p.out;
+  document.getElementById('spot-about').textContent=p.about||'';
+  document.getElementById('spot-web-label').textContent=p.web||'';
+  document.getElementById('spot-social').innerHTML=(p.social||[]).map(s=>`<span class="touch-chip" onclick="notify('Opens ${p.name} on ${s} — you leave myBlueprint')">${s}</span>`).join('');
   document.getElementById('overlay').classList.remove('active');
   document.getElementById('spotoverlay').classList.add('active');
   document.body.style.overflow='hidden';window.scrollTo({top:0});
