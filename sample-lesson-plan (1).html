@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Plan — Trades That Build Ontario</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--cyan:#00b6e8;--navy:#151a4a;--royal:#2f6bff;--amber:#ff9e2c;--amber-soft:#fff2df;--amber-ink:#b5610a;
+    --teal:#12b886;--teal-soft:#dcf7ee;--teal-ink:#0b7a5b;--paper:#f4f7fb;--line:#e3e9f2;--muted:#61708c;
+    --fd:"Poppins",sans-serif;--fb:"Inter",sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--fb);color:var(--navy);line-height:1.6;background:#e9eef5;padding:24px}
+  .page{max-width:800px;margin:0 auto 24px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(21,26,74,.1)}
+  h1,h2,h3{font-family:var(--fd);letter-spacing:-.01em}
+  .head{background:linear-gradient(120deg,var(--navy),#242a63);color:#fff;padding:30px 36px}
+  .head .brand{font-size:13px;font-weight:600;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+  .head h1{font-size:26px;font-weight:600;margin-bottom:6px}
+  .head p{color:#c2c8e0;font-size:14px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .chip{font-size:12px;font-weight:600;background:rgba(255,255,255,.12);padding:5px 12px;border-radius:20px}
+  .body{padding:30px 36px}
+  .sec{margin-bottom:28px}
+  .sec:last-child{margin-bottom:0}
+  .sec h2{font-size:17px;font-weight:600;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:9px}
+  .sec h2 .n{width:24px;height:24px;border-radius:7px;background:var(--cyan);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700}
+  .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:14px}
+  .meta-grid .m{display:flex;gap:8px}
+  .meta-grid .m b{font-weight:600;min-width:96px;color:var(--navy)}
+  .meta-grid .m span{color:var(--muted)}
+  ul{margin:0 0 0 4px;padding:0;list-style:none}
+  li{padding:6px 0 6px 26px;position:relative;font-size:14px}
+  li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+  .clip-table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .clip-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+  .clip-table td{padding:9px 10px;border-bottom:1px solid var(--line)}
+  .clip-table .num{width:28px;color:var(--muted);font-weight:600}
+  .clip-table .dur{color:var(--muted);white-space:nowrap}
+  .pausebox{background:var(--amber-soft);border:1px solid #f5d9a8;border-radius:12px;padding:16px 18px;margin:12px 0}
+  .pausebox .pl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--amber-ink);margin-bottom:8px}
+  .pausebox h4{font-size:15px;font-weight:600;margin-bottom:8px}
+  .pausebox .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+  @media(max-width:640px){.pausebox .two{grid-template-columns:1fr}}
+  .pausebox .mode{background:#fff;border-radius:9px;padding:11px 13px}
+  .pausebox .mode .mt{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+  .pausebox .mode p{font-size:13px;color:var(--muted)}
+  .curr-map{background:var(--teal-soft);border-radius:12px;padding:14px 16px;font-size:13.5px}
+  .curr-map .cm{padding:5px 0;display:flex;gap:10px}
+  .curr-map .cm b{color:var(--teal-ink);font-weight:600;white-space:nowrap}
+  .worksheet{border:2px dashed #c3d6ff;border-radius:12px;padding:20px 22px;background:#fbfcff}
+  .worksheet .ws-tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--royal);margin-bottom:12px}
+  .wq{margin-bottom:16px}
+  .wq .q{font-size:14px;font-weight:600;margin-bottom:8px}
+  .wline{border-bottom:1px solid #cbd5e6;height:22px;margin-bottom:3px}
+  .noprint{margin:0 auto 24px;max-width:800px;display:flex;gap:10px}
+  .btn{font-family:var(--fb);font-weight:600;font-size:13px;padding:11px 18px;border-radius:10px;border:0;cursor:pointer}
+  .btn-p{background:var(--royal);color:#fff}
+  .note{font-size:12px;color:var(--muted);font-style:italic;margin-top:8px}
+  @media print{body{background:#fff;padding:0}.noprint{display:none}.page{box-shadow:none;border-radius:0;margin:0}}
+</style>
+</head>
+<body>
+
+<div class="noprint">
+  <button class="btn btn-p" onclick="window.print()">🖨 Print / save as PDF</button>
+</div>
+
+<div class="page">
+  <div class="head">
+    <div class="brand">Career Launch '27 · Teacher facilitation guide</div>
+    <h1>Trades That Build Ontario</h1>
+    <p>A collection of six 60-second clips from real tradespeople — with everything you need to run it cold.</p>
+    <div class="chips">
+      <span class="chip">Grade 10 · GLC2O</span>
+      <span class="chip">7 minutes video</span>
+      <span class="chip">~25 min full lesson</span>
+      <span class="chip">Works projected or 1:1</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="sec">
+      <h2><span class="n">1</span>At a glance</h2>
+      <div class="meta-grid">
+        <div class="m"><b>Total video</b><span>7 minutes (6 clips × ~60s + 2 pause points)</span></div>
+        <div class="m"><b>Full lesson</b><span>~25 minutes with discussion</span></div>
+        <div class="m"><b>Prep needed</b><span>None — press play</span></div>
+        <div class="m"><b>Devices</b><span>Optional — works on a projector alone</span></div>
+        <div class="m"><b>Grades</b><span>Best for 9–12; adaptable for 7–8</span></div>
+        <div class="m"><b>Offline option</b><span>Reflection sheet below (no devices)</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2><span class="n">2</span>Learning goals</h2>
+      <ul>
+        <li>Recognize a range of skilled-trades careers, including ones students may not have considered</li>
+        <li>Connect trades pathways to apprenticeship, OYAP, and post-secondary options</li>
+        <li>Reflect on how personal interests and strengths map to trades work</li>
+        <li>Challenge assumptions about who trades careers are "for"</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <h2><span class="n">3</span>What's in the collection</h2>
+      <table class="clip-table">
+        <thead><tr><th class="num">#</th><th>Clip</th><th>The hook</th><th class="dur">Length</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Electrician apprentice</td><td>"I earn while I learn — no student debt"</td><td class="dur">0:52</td></tr>
+          <tr><td class="num">2</td><td>Crane operator</td><td>A day 80 metres up over a build site</td><td class="dur">0:58</td></tr>
+          <tr><td class="num">3</td><td>Welder</td><td>Underwater welding pays six figures</td><td class="dur">0:49</td></tr>
+          <tr><td class="num" style="color:var(--amber);font-weight:700">⏸</td><td colspan="3" style="color:var(--amber-ink);font-weight:600;font-style:italic">Pause point 1 — discussion (see section 4)</td></tr>
+          <tr><td class="num">4</td><td>HVAC technician</td><td>Every building needs one — never out of work</td><td class="dur">0:55</td></tr>
+          <tr><td class="num">5</td><td>Millwright</td><td>The problem-solver who keeps factories running</td><td class="dur">0:51</td></tr>
+          <tr><td class="num" style="color:var(--amber);font-weight:700">⏸</td><td colspan="3" style="color:var(--amber-ink);font-weight:600;font-style:italic">Pause point 2 — discussion (see section 4)</td></tr>
+          <tr><td class="num">6</td><td>Solar installer</td><td>A trade that didn't exist 20 years ago</td><td class="dur">0:57</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec">
+      <h2><span class="n">4</span>Pause points — what to do</h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:6px">The video stops automatically at each pause point. Run it one of two ways:</p>
+
+      <div class="pausebox">
+        <div class="pl">⏸ Pause point 1 · after the welder</div>
+        <h4>"Which of these three surprised you — and why?"</h4>
+        <div class="two">
+          <div class="mode"><div class="mt">📽️ Projecting to the class</div><p>Quick show of hands: who'd never heard of one of these? Then 60-second turn-and-talk with a neighbour. Call on two pairs.</p></div>
+          <div class="mode"><div class="mt">💻 Students on devices</div><p>Students tap an answer to "Had you heard of these trades before?" — anonymous. The class result appears on screen; you react to the split.</p></div>
+        </div>
+      </div>
+
+      <div class="pausebox">
+        <div class="pl">⏸ Pause point 2 · after the millwright</div>
+        <h4>"Which of these could you see yourself trying — and what would you need to find out?"</h4>
+        <div class="two">
+          <div class="mode"><div class="mt">📽️ Projecting to the class</div><p>Ask for one "I'd try…" from three volunteers, and one question each has about that path. Note them on the board.</p></div>
+          <div class="mode"><div class="mt">💻 Students on devices</div><p>Students tap "Could you see yourself doing this?" (Yes / Maybe / Not for me) — anonymous. This feeds the awareness-lift comparison with pause point 1.</p></div>
+        </div>
+      </div>
+      <p class="note">No devices? Both pause points work perfectly as spoken discussion. The device version only adds anonymous class-level data — it's never required.</p>
+    </div>
+
+    <div class="sec">
+      <h2><span class="n">5</span>Curriculum connections</h2>
+      <div class="curr-map">
+        <div class="cm"><b>GLC2O:</b><span>Exploration of Opportunities — investigating a range of careers and the education/training pathways that lead to them.</span></div>
+        <div class="cm"><b>Cross-curricular:</b><span>Technological Education (TIJ/TDJ), Math (apprenticeship wages/hours), Guidance advisory periods.</span></div>
+        <div class="cm"><b>Pathways policy:</b><span>Supports Creating Pathways to Success — experiential and career/life planning.</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2><span class="n">6</span>Offline reflection sheet</h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:14px">Print one per student, or project and have them answer in a notebook. Works with zero devices.</p>
+      <div class="worksheet">
+        <div class="ws-tag">Trades That Build Ontario · name: ___________________</div>
+        <div class="wq"><div class="q">1. Name two trades from the clips you didn't know existed (or knew little about).</div><div class="wline"></div><div class="wline"></div></div>
+        <div class="wq"><div class="q">2. Pick the one that interests you most. What about it appeals to you?</div><div class="wline"></div><div class="wline"></div></div>
+        <div class="wq"><div class="q">3. What's one thing you'd need to find out to pursue it? (training, cost, where to start)</div><div class="wline"></div><div class="wline"></div></div>
+        <div class="wq"><div class="q">4. Before today, did trades feel like an option for someone like you? Has that changed? Why or why not?</div><div class="wline"></div><div class="wline"></div><div class="wline"></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
