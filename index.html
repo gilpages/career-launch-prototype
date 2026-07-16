@@ -182,10 +182,10 @@
 
   .player{aspect-ratio:16/9;background:#0d1030;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
   .player .stage{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .4s}
-  .clip-visual{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-  .clip-visual .cbig{font-size:64px}
-  .clip-visual .cname{font-family:var(--fd);font-weight:600;font-size:22px}
-  .clip-visual .crole{font-size:13px;color:#a9b2d4;max-width:400px;text-align:center;padding:0 30px}
+  .clip-visual{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:50px 30px 30px}
+  .clip-visual .cbig{font-size:56px}
+  .clip-visual .cname{font-family:var(--fd);font-weight:600;font-size:22px;text-align:center}
+  .clip-visual .crole{font-size:12.5px;color:#a9b2d4;max-width:360px;text-align:center}
   .clip-visual .arc{display:flex;gap:0;margin-top:10px;border:1px solid rgba(255,255,255,.18);border-radius:20px;overflow:hidden}
   .clip-visual .arc span{font-size:10px;font-weight:600;color:#c2c8e0;padding:5px 12px;position:relative}
   .clip-visual .arc span:not(:last-child){border-right:1px solid rgba(255,255,255,.18)}
@@ -201,11 +201,11 @@
   .player .seg.done .fill{width:100%}
   .player.paused .stage,.player.paused .clipnow,.player.paused .pctrl,.player.paused .segbar{visibility:hidden}
 
-  .pause-ov{position:absolute;inset:0;background:#0d1030;display:none;flex-direction:column;justify-content:center;padding:26px 34px;color:#fff;z-index:5;overflow-y:auto}
+  .pause-ov{position:absolute;inset:0;background:#0d1030;display:none;flex-direction:column;justify-content:center;padding:20px 30px;color:#fff;z-index:5;overflow-y:auto}
   .pause-ov.show{display:flex;animation:fade .3s}
-  .pz-lab{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-  .pause-ov h3{font-family:var(--fd);font-size:19px;font-weight:600;margin-bottom:6px;max-width:600px}
-  .pz-mode{font-size:13px;color:#a9b2d4;margin-bottom:16px}
+  .pz-lab{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+  .pause-ov h3{font-family:var(--fd);font-size:18px;font-weight:600;margin-bottom:4px;max-width:600px}
+  .pz-mode{font-size:12.5px;color:#a9b2d4;margin-bottom:12px}
   .discuss{display:flex;flex-direction:column;gap:9px;max-width:560px}
   .dq{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px 14px;font-size:14px}
   .poll{display:flex;flex-direction:column;gap:9px;max-width:520px}
@@ -215,8 +215,8 @@
   .po .pt{position:relative;z-index:1;display:flex;justify-content:space-between}
   .po .pp{font-weight:700;color:var(--cyan);opacity:0;transition:opacity .3s}
   .po.revealed .pp{opacity:1}
-  .pause-resume{margin-top:18px;align-self:flex-start}
-  .teacher-cues{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .pause-resume{margin-top:14px;align-self:flex-start}
+  .teacher-cues{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
   .teacher-cues .tc{font-size:12px;color:#8b93b8;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 12px}
 
   /* rich interaction types (demo) */
@@ -907,6 +907,7 @@ function resetPlayer(){
   document.querySelectorAll('.seg').forEach(s=>{s.classList.remove('done');s.querySelector('.fill').style.width='0';});
   document.getElementById('pbig').textContent='▶';document.getElementById('pctrl').style.display='flex';
   document.getElementById('pauseov').classList.remove('show');
+  document.getElementById('player').classList.remove('paused');
   document.getElementById('stage').style.opacity='1';
   setStage(0);
   document.getElementById('clip-name').textContent='Press play';document.getElementById('clip-emoji').textContent='🎬';document.getElementById('clip-role').textContent='';
